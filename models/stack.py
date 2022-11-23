@@ -19,3 +19,6 @@ class Stack:
 
     def __bool__(self):
         return not self.is_empty()
+
+    def __str__(self):
+        return str(self.stack)
