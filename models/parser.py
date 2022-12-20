@@ -1,14 +1,17 @@
 from models.operator import OperatorType
 from models.stack import Stack
 from models.tree import Node
+from abc import ABC, abstractmethod
 
 
-class Parser:
+class Parser(ABC):
     @classmethod
+    @abstractmethod
     def can_parse(cls, expression) -> bool:
         raise NotImplementedError
 
     @classmethod
+    @abstractmethod
     def parse(cls, expression) -> Node:
         raise NotImplementedError
 

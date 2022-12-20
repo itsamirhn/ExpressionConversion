@@ -1,14 +1,11 @@
 from models.parser import AutoParser
+from models.operator import OperatorType
 
 
 def normalize_expression(expression):
-    expression = expression.replace('(', ' ( ')
-    expression = expression.replace(')', ' ) ')
-    expression = expression.replace('+', ' + ')
-    expression = expression.replace('-', ' - ')
-    expression = expression.replace('*', ' * ')
-    expression = expression.replace('/', ' / ')
-    expression = expression.replace('^', ' ^ ')
+    for operator in OperatorType:
+        value = operator.value.value
+        expression = expression.replace(value, f' {value} ')
     expression = ' '.join(expression.split())
     return expression.split()
 
